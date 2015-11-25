@@ -1,4 +1,4 @@
-package io.zipcoder.RedditApp.Model;
+package io.zipcoder.RedditApp;
 
 import org.springframework.stereotype.Component;
 
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- * Created by MarzuwqM on 11/24/15.
+ * Created by rsparks on 11/25/15.
  */
 @Component
 public class SimpleCORSFilter implements Filter {

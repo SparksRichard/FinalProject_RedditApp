@@ -1,17 +1,48 @@
 package io.zipcoder.RedditApp.Model;
 
 
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 /**
  * Created by MarzuwqM on 11/24/15.
  */
+@Entity
+@Table(name = "RedditLinks")
+public class RedditLink {
 
-public class RedditApp {
-
-    /*@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    private String author;
+
+    @NotNull
+    private long numcomments;
+
+    @NotNull
+    private Boolean over18;
+
+    @NotNull
+    private String permalink;
+
+    @NotNull
+    private long score;
+
+    @NotNull
+    private String subreddit;
+
+    @NotNull
+    private String thumbnail;
+
+    @NotNull
+    private String title;
+
+    @NotNull
+    private String url;
+
+
 
     public String getAuthor() {
         return author;
@@ -29,12 +60,12 @@ public class RedditApp {
         this.id = id;
     }
 
-    public long getNum_comments() {
-        return num_comments;
+    public long getNumcomments() {
+        return numcomments;
     }
 
-    public void setNum_comments(long num_comments) {
-        this.num_comments = num_comments;
+    public void setNumcomments(long numcomments) {
+        this.numcomments = numcomments;
     }
 
     public String getPermalink() {
@@ -45,20 +76,20 @@ public class RedditApp {
         this.permalink = permalink;
     }
 
-    public Boolean getOver_18() {
-        return over_18;
+    public Boolean getOver18() {
+        return over18;
     }
 
-    public void setOver_18(Boolean over_18) {
-        this.over_18 = over_18;
+    public void setOver18(Boolean over18) {
+        this.over18 = over18;
     }
 
     public String getSubreddit() {
-        return Subreddit;
+        return subreddit;
     }
 
     public void setSubreddit(String subreddit) {
-        Subreddit = subreddit;
+        subreddit = subreddit;
     }
 
     public long getScore() {
@@ -93,44 +124,18 @@ public class RedditApp {
         this.title = title;
     }
 
-    @NotNull
-    private String author;
 
-    @NotNull
-    private long num_comments;
-
-    @NotNull
-    private Boolean over_18;
-
-    @NotNull
-    private String permalink;
-
-    @NotNull
-    private long score;
-
-    @NotNull
-    private String Subreddit;
-
-    @NotNull
-    private String thumbnail;
-
-    @NotNull
-    private String title;
-
-    @NotNull
-    private String url;
-
-    public RedditApp(String author0, long num_comments0, Boolean over_180, String permalink0, long score0, String Subreddit0, String thumbnail0, String title0, String url0){
+    public RedditLink(String author0, long num_comments0, Boolean over_180, String permalink0, long score0, String subreddit0, String thumbnail0, String title0, String url0){
         this.author = author0;
-        this.num_comments = num_comments0;
-        this.over_18 = over_180;
+        this.numcomments = num_comments0;
+        this.over18 = over_180;
         this.permalink = permalink0;
         this.score = score0;
-        this.Subreddit = Subreddit0;
+        this.subreddit = subreddit0;
         this.thumbnail = thumbnail0;
         this.title = title0;
         this.url = url0;
     }
-    public RedditApp(){ }
+    public RedditLink(){ }
 
 }

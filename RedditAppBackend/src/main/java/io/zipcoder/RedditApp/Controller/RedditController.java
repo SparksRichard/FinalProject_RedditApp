@@ -1,6 +1,8 @@
 package io.zipcoder.RedditApp.Controller;
 
-import io.zipcoder.RedditApp.Model.RedditApp;
+import io.zipcoder.RedditApp.Model.RedditLink;
+import io.zipcoder.RedditApp.Model.RedditLinkDAO;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,14 +16,14 @@ import java.util.ArrayList;
  */
 @Controller
 public class RedditController {
-   //@Autowired
-    //private RedditDAO redditDAO;
-    RedditApp redditApp;
+   @Autowired
+    private RedditLinkDAO redditDAO;
+    RedditLink redditLink;
     @ResponseBody
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public ArrayList<redditApp> searchBox(@RequestBody String search){
+    public ArrayList<RedditLink> searchBox(@RequestBody String search){
         System.out.println(search);
-        return ArrayList<redditApp>;
+        return null;
 
     }
 }
