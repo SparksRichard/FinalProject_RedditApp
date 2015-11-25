@@ -15,6 +15,11 @@ public class RedditLink {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+
+
+    @NotNull
+    private long searchid;
+
     @NotNull
     private String author;
 
@@ -50,6 +55,14 @@ public class RedditLink {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public long getSearchid() {
+        return searchid;
+    }
+
+    public void setSearchid(long searchid) {
+        this.searchid = searchid;
     }
 
     public long getId() {
@@ -125,16 +138,17 @@ public class RedditLink {
     }
 
 
-    public RedditLink(String author0, long num_comments0, Boolean over_180, String permalink0, long score0, String subreddit0, String thumbnail0, String title0, String url0){
-        this.author = author0;
-        this.numcomments = num_comments0;
-        this.over18 = over_180;
-        this.permalink = permalink0;
-        this.score = score0;
-        this.subreddit = subreddit0;
-        this.thumbnail = thumbnail0;
-        this.title = title0;
-        this.url = url0;
+    public RedditLink(long searchid, String author, long num_comments, Boolean over_18, String permalink, long score, String subreddit, String thumbnail, String title, String url){
+        this.searchid = searchid;
+        this.author = author;
+        this.numcomments = num_comments;
+        this.over18 = over_18;
+        this.permalink = permalink;
+        this.score = score;
+        this.subreddit = subreddit;
+        this.thumbnail = thumbnail;
+        this.title = title;
+        this.url = url;
     }
     public RedditLink(){ }
 
