@@ -14,6 +14,9 @@ angular.module('redditSearch.services',[])
 			$window.location.href='#/'
 		}) 
 	}
-	function
+	return{
+		getData: function(){return redditUrlList},
+		sendRedditSearch: sendRedditSearch
+	}
 
 })

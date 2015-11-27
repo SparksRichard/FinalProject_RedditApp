@@ -15,19 +15,20 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'redditSearch.controller',
+    'redditSearch.services'
   ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'features/views/search.html',
+        controller: 'redditSearchCtrl',
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl',
-        controllerAs: 'about'
+      .when('/list', {
+        templateUrl: 'features/views/searchResult.html',
+        controller: 'redditSearchCtrl',
+        controllerAs: 'about' //what is this?
       })
       .otherwise({
         redirectTo: '/'
