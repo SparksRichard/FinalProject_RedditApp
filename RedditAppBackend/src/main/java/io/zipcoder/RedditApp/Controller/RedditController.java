@@ -4,10 +4,7 @@ import io.zipcoder.RedditApp.Model.RedditLink;
 import io.zipcoder.RedditApp.Model.RedditLinkDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -18,12 +15,15 @@ import java.util.ArrayList;
 public class RedditController {
    @Autowired
     private RedditLinkDAO redditDAO;
-    RedditLink redditLink;
-    @ResponseBody
+    RedditLink redditLink = new RedditLink();
+    ArrayList<RedditLink> dummyListofLinks = new ArrayList<>();
+
     @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public ArrayList<RedditLink> searchBox(@RequestBody String search){
+    @ResponseBody
+    public ArrayList<RedditLink> searchBox(@RequestParam String search){
+        dummyListofLinks.add(redditLink);
         System.out.println(search);
-        return null;
+        return dummyListofLinks;
 
     }
 }

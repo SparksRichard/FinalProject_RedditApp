@@ -5,11 +5,13 @@ angular.module('redditSearch.services',[])
 	var redditUrlList = undefined;
 
 	function sendRedditSearch(searchReddit){
+		console.log(searchReddit);
 		$http({
 			method: 'GET',
-			URL: 'http://127.0.0.1.8080/search',
-			data: searchReddit
+			url: 'http://127.0.0.1:8080/search',
+			params: {search: searchReddit}
 		}).then(function successCallback(output){
+			console.log(output);
 			redditUrlList = output.data;
 			$window.location.href='#/'
 		}) 
