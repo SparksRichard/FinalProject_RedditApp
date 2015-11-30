@@ -150,6 +150,6 @@ public class RedditLink {
         this.title = title;
         this.url = url;
     }
-    public RedditLink(){ }
+    public RedditLink(String urlRed, String line){ }
 
 }
