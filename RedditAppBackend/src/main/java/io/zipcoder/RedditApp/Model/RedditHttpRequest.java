@@ -1,5 +1,7 @@
 package io.zipcoder.RedditApp.Model;
 
+import com.fasterxml.jackson.databind.util.JSONPObject;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -11,7 +13,7 @@ import java.net.URLConnection;
 
 public class RedditHttpRequest {
 
-    public RedditLink getRedditData(String urlRed){
+    public String getRedditData(String urlRed){
         String line = "";
         try {
             URL url = new URL(urlRed);
@@ -23,6 +25,7 @@ public class RedditHttpRequest {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new RedditLink(urlRed,line);
+        JSONPObject jsonpObject = new JSONPObject()
+        return line;
     }
 }

@@ -8,5 +8,6 @@ public class RedditAppBackendApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(RedditAppBackendApplication.class, args);
+
     }
 }

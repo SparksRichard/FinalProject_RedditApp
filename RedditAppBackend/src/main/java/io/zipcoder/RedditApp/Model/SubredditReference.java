@@ -2,11 +2,9 @@ package io.zipcoder.RedditApp.Model;
 
 import javax.persistence.Entity;
 
-<<<<<<< HEAD
-=======
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
->>>>>>> zooqini
 import java.sql.Date;
 
 /**
