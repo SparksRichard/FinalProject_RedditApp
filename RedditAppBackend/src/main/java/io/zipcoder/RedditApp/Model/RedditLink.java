@@ -138,11 +138,11 @@ public class RedditLink {
     }
 
 
-    public RedditLink(long searchid, String author, long num_comments, Boolean over_18, String permalink, long score, String subreddit, String thumbnail, String title, String url){
+    public RedditLink(long searchid, String author, long numcomments, Boolean over18, String permalink, long score, String subreddit, String thumbnail, String title, String url){
         this.searchid = searchid;
         this.author = author;
-        this.numcomments = num_comments;
-        this.over18 = over_18;
+        this.numcomments = numcomments;
+        this.over18 = over18;
         this.permalink = permalink;
         this.score = score;
         this.subreddit = subreddit;

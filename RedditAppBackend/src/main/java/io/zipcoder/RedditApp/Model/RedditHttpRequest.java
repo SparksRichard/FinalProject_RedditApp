@@ -1,31 +1,34 @@
 package io.zipcoder.RedditApp.Model;
 
-import com.fasterxml.jackson.databind.util.JSONPObject;
-
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
+import com.mashape.unirest.http.HttpResponse;
+import com.mashape.unirest.http.JsonNode;
+import com.mashape.unirest.http.Unirest;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by MarzuwqM on 11/30/15.
  */
 
 public class RedditHttpRequest {
-
-    public String getRedditData(String urlRed){
-        String line = "";
-        try {
-            URL url = new URL(urlRed);
-            URLConnection connection = url.openConnection();
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            line = in.readLine();
-            in.close();
-
-        } catch (Exception e) {
-            e.printStackTrace();
+    RedditParser redditParser = new RedditParser();
+    private HttpResponse<JsonNode> response;
+    public void getRedditData(String sub){
+        try{
+            response = Unirest.get("https://www.reddit.com/r/{sub}.json")
+                    .routeParam("sub", sub)
+                    .asJson();
+        }catch(Exception e) {
+            System.out.println(e);
         }
-        JSONPObject jsonpObject = new JSONPObject()
-        return line;
+        redditParser.parseData(response);
     }
+
+    public HttpResponse<JsonNode> getResponse() {
+        return response;
+    }
+
+    public void setResponse(HttpResponse<JsonNode> response) {
+        this.response = response;
+    }
+
 }
