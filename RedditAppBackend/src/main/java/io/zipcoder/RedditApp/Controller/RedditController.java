@@ -39,6 +39,8 @@ public class RedditController {
             if(subredditReference==null) {
                 subredditReference = new SubredditReference(search);
                 subredditReferenceDAO.save(subredditReference);
+            }else{
+                redditLinkDAO.deleteAllWithSearchid(subredditReference.getId());
             }
             try {
                 redditLinkArrayList = redditHttpRequest.getRedditDataWrapper(search, subredditReference.getId());
