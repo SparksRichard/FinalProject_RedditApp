@@ -8,14 +8,12 @@ import javax.validation.constraints.NotNull;
  * Created by MarzuwqM on 11/24/15.
  */
 @Entity
-@Table(name = "RedditLinks")
+@Table(name = "redditlinks")
 public class RedditLink {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-
-
 
     @NotNull
     private long searchid;
@@ -47,6 +45,19 @@ public class RedditLink {
     @NotNull
     private String url;
 
+    public RedditLink(long searchid, String author, long numcomments, Boolean over18, String permalink, long score, String subreddit, String thumbnail, String title, String url){
+        this.searchid = searchid;
+        this.author = author;
+        this.numcomments = numcomments;
+        this.over18 = over18;
+        this.permalink = permalink;
+        this.score = score;
+        this.subreddit = subreddit;
+        this.thumbnail = thumbnail;
+        this.title = title;
+        this.url = url;
+    }
+    public RedditLink(){ }
 
 
     public String getAuthor() {
@@ -138,19 +149,7 @@ public class RedditLink {
     }
 
 
-    public RedditLink(long searchid, String author, long numcomments, Boolean over18, String permalink, long score, String subreddit, String thumbnail, String title, String url){
-        this.searchid = searchid;
-        this.author = author;
-        this.numcomments = numcomments;
-        this.over18 = over18;
-        this.permalink = permalink;
-        this.score = score;
-        this.subreddit = subreddit;
-        this.thumbnail = thumbnail;
-        this.title = title;
-        this.url = url;
-    }
-    public RedditLink(){ }
+
 
 
 }

@@ -5,15 +5,15 @@ import javax.persistence.Entity;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by rsparks on 11/25/15.
  */
 @Entity
-@Table(name = "SubredditReferences")
+@Table(name = "subredditreferences")
 public class SubredditReference {
-
 
 
     @Id
@@ -22,8 +22,14 @@ public class SubredditReference {
 
     @NotNull
     private String search;
-    @NotNull
-    private Date time;
+
+
+    public SubredditReference(String search){
+        this.search = search;
+    }
+    public SubredditReference(){ }
+
+
 
     public long getId() {
         return id;
@@ -41,19 +47,7 @@ public class SubredditReference {
         this.search = search;
     }
 
-    public Date getTime() {
-        return time;
-    }
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
 
-    public SubredditReference(long id, String search, Date time){
-        this.id = id;
-        this.search = search;
-        this.time = time;
-    }
-    public SubredditReference(){ }
 
 }

@@ -10,6 +10,6 @@ public class testMainMethod {
 
     public static void main(String[] args) {
         RedditHttpRequest redditHttpRequest = new RedditHttpRequest();
-        redditHttpRequest.getRedditData("gaming");
+        redditHttpRequest.getRedditData("",1);
     }
 }
