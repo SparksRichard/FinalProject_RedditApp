@@ -8,6 +8,5 @@ import java.util.ArrayList;
  * Created by rsparks on 11/25/15.
  */
 public interface RedditLinkDAO extends CrudRepository<RedditLink, Integer> {
-    ArrayList<RedditLink> findAllBySearchid(long searchid);
-    void deleteAllWithSearchid(long searchid);
+    Iterable<RedditLink> findAllBySearchid(long searchid);
 }

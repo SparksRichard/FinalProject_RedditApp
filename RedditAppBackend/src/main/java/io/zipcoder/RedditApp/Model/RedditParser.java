@@ -22,7 +22,8 @@ public class RedditParser {
     ArrayList<RedditLink> redditLinks = new ArrayList<>();
     JSONArray redditPosts = rawData.getBody().getObject().getJSONObject("data").getJSONArray("children");
 
-        for(int i=0; i<25; i++){
+        for(int i=0; i<redditPosts.length(); i++){
+
             JSONObject tempData = redditPosts.getJSONObject(i).getJSONObject("data");
 
             String author = tempData.getString("author");

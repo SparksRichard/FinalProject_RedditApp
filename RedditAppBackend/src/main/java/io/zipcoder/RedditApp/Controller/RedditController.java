@@ -31,17 +31,18 @@ public class RedditController {
     public ArrayList<RedditLink> searchBox(@RequestParam String search){
         Date date = new Date();
         long currentTime = date.getTime();
+
+
+
         if(currentTime-redditHttpRequest.getRequestDate()>3000) {
-            if ("".equals(search)) {
-                search = "default";
-            }
             subredditReference = subredditReferenceDAO.findBySearch(search);
-            if(subredditReference==null) {
+            if (subredditReference == null) {
                 subredditReference = new SubredditReference(search);
                 subredditReferenceDAO.save(subredditReference);
-            }else{
-                redditLinkDAO.deleteAllWithSearchid(subredditReference.getId());
+            } else {
+                redditLinkDAO.delete(redditLinkDAO.findAllBySearchid(subredditReference.getId()));
             }
+
             try {
                 redditLinkArrayList = redditHttpRequest.getRedditDataWrapper(search, subredditReference.getId());
             } catch (InterruptedException e) {
@@ -49,7 +50,7 @@ public class RedditController {
             }
             return redditLinkArrayList;
         }
-        subredditReference = subredditReferenceDAO.findBySearch(search);
-        return redditLinkDAO.findAllBySearchid(subredditReference.getId());
+        subredditReference = subredditReferenceDAO.findBySearch("");
+        return (ArrayList<RedditLink>)redditLinkDAO.findAllBySearchid(subredditReference.getId());
     }
 }
