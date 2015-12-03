@@ -1,0 +1,16 @@
+<div class='container' ng-repeat="redditLink in redditUrlList">
+	
+		<a class='picture' ng-href=redditLink.url>
+			<img class='thumbnail' ng-src=redditLink.thumbnail alt='broken' height='100' width='100'>
+		</a>
+		<ul class='titleLink' style='list-style-type:none'>
+			<li><a class='titleFormat' ng-href=redditLink.url>{{redditLink.title}}</a></li>
+			<li><a class='commentFormat' ng-href='http://www.reddit.com'+redditLink.permalink>Click here to view {{redditLink.numcomments}} comments</a></li>
+			<li class='notSafe'></li>
+		</ul>
+		<ul class='infoList'>
+			<li>Points: {{redditLink.score}}</li>
+			<li>Sub: {{redditLink.subreddit}}</li>
+			<li>By: {{redditLink.author}}</li>
+		</ul>	
+</div>

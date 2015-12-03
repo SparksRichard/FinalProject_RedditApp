@@ -13,7 +13,7 @@ angular.module('redditSearch.services',[])
 		}).then(function successCallback(output){
 
 			redditUrlList = output.data;
-			$window.location.href='#/'
+			$window.location.href='#/list'
 		}) 
 	}
 	return{

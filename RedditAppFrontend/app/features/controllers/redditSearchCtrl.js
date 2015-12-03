@@ -5,7 +5,11 @@ angular.module('redditSearch.controller',[])
 	$scope.redditUrlList = {};
 	$scope.sendSearch = function(){
 		var targetSubreddit = $scope.search;
+		if(targetSubreddit===undefined){
+			targetSubreddit = "";
+		}
 		redditSearchService.sendRedditSearch(targetSubreddit);
+
 	}
 	$scope.$watch(function(){
 		return redditSearchService.getData();
