@@ -10,11 +10,10 @@ angular.module('redditSearch.controller',[])
 	$scope.$watch(function(){
 		return redditSearchService.getData();
 	}, function(newVal, oldVal) {
-		console.log(oldVal);
-		console.log(newVal);
 		if (newVal != undefined ) {
 			$scope.redditUrlList = newVal;
 		}
+	console.log($scope.redditUrlList);
 	}) 
 
 
